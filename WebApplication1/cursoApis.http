@@ -1,0 +1,10 @@
+﻿@cursoApis_HostAddress = https://localhost:7149
+
+GET {{cursoApis_HostAddress}}/api/weatherforecast
+
+###
+
+@id=1
+GET {{cursoApis_HostAddress}}/{{id}}
+
+###
