@@ -11,11 +11,13 @@ namespace WebApplication1.Controllers
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         ];
 
-
+        private ILogger<WeatherForecastController> _logger;
         private static WeatherForecast[] ListWeatherForecast;
 
-        public WeatherForecastController()
+        public WeatherForecastController(ILogger<WeatherForecastController> logger)
         {
+            this._logger = logger;
+
             ListWeatherForecast = Enumerable.Range(1, 5).Select(index => new WeatherForecast
             {
                 Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
@@ -33,6 +35,7 @@ namespace WebApplication1.Controllers
         [HttpGet(Name = "GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()
         {
+            _logger.LogInformation("Retrieving all weather forecasts.");
             return ListWeatherForecast;
         }
 

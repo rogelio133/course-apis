@@ -30,7 +30,7 @@ namespace cursoApis.MIddlewares
        
     }
 
-    public static class RequestLoggingMiddlewareExtensions
+    public static class RequestLoggingMiddlewareExtensionss
     {
         public static IApplicationBuilder UseRequestLogging(this IApplicationBuilder app)
             => app.UseMiddleware<RequestLoggingMiddleware>();
